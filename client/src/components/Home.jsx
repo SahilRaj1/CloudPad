@@ -1,29 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 
 export default function Home() {
+
+    const context = useContext(contextValue);
+    const { notes, setNotes } = context;
+
     return (
         <div className="my-3">
 
             {/* add a note */}
             <h1 className="text-center">Add a Note</h1>
             <div className="container-fluid">
-                <div class="mb-3 mt-4">
-                    <label for="noteTitle" class="form-label">
+                <div className="mb-3 mt-4">
+                    <label htmlFor="noteTitle" className="form-label">
                         <h4>Title</h4>
                     </label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="noteTitle"
                         placeholder="Enter title here"
                     />
                 </div>
-                <div class="mb-3">
-                    <label for="noteTextArea" class="form-label">
+                <div className="mb-3">
+                    <label htmlFor="noteTextArea" className="form-label">
                         <h4>Note</h4>
                     </label>
                     <textarea
-                        class="form-control"
+                        className="form-control"
                         id="noteTextArea"
                         rows="4"
                         placeholder="Enter note here"

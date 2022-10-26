@@ -9,7 +9,6 @@ function App() {
     return (
         <NoteState>
             <Router>
-                <div className="container">
                     <Navbar />
                     <div className="container">
                         <Routes>
@@ -17,7 +16,6 @@ function App() {
                             <Route exact path="/about" element={<About />}></Route>
                         </Routes>
                     </div>
-                </div>
             </Router>
         </NoteState>
     );

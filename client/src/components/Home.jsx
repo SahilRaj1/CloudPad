@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
+import { Notes } from "./Notes";
 
 export default function Home() {
-
-    const context = useContext(contextValue);
-    const { notes, setNotes } = context;
 
     return (
         <div className="my-3">
@@ -37,9 +35,7 @@ export default function Home() {
             </div>
 
             {/* view notes here */}
-            <div className="container-fluid my-5">
-              <h1 className="text-center">My Notes</h1>
-            </div>
+            <Notes />
 
         </div>
     );

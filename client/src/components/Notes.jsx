@@ -10,7 +10,7 @@ export const Notes = () => {
   return (
     <div className="container-fluid my-5">
         <h1 className="text-center">My Notes</h1>
-        <div className="row">
+        <div className="row" style={{margin: "auto"}}>
             { notes.map((note) => {
                 return <NoteItem title={note.title} description={note.description} />
             }) }

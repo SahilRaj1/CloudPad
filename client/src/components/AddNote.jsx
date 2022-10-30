@@ -7,11 +7,11 @@ export const AddNote = (props) => {
     const { addNote } = context;
 
     const handleAdd = () => {
-        addNote(note);
+        addNote(note.tag, note.description);
         props.showAlert("Successfully added note", "success")
     }
 
-    const [note, setNote] = useState({title: "", description: "", tag: ""});
+    const [note, setNote] = useState({title: "", description: "", tag: "default"});
 
     const onChange = (event) => {
         setNote({...note, [event.target.name]: event.target.value})

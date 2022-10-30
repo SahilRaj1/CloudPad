@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import NoteContext from "../context/notes/noteContext";
 
 export const NoteItem = (props) => {
 
     const {title, description} = props;
+    const context = useContext(NoteContext);
+    const { deleteNote } = context;
+    const { note } = props;
     
     const handleEdit = () => {
         props.showAlert("Successfully edited note", "success")
@@ -15,13 +19,13 @@ export const NoteItem = (props) => {
     return (
         <>
 
-        <div className='col-md-6 col-lg-4 my-3' style={{ margin: "auto", display: "flex", justifyContent: "center" }}> 
-            <div className="card" style={{width: "20rem"}}>
-            <div className="card-body">
+        <div className='col-md-6 col-lg-4 my-3' > 
+            <div className="card" style={{width: "20rem", marginLeft: "auto", marginRight: "auto"}}>
+            <div className="card-body" >
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
                 <i onClick={handleEdit} className="fa-solid fa-pen-to-square mx-2"></i>
-                <i onClick={handleDelete} className="fa-solid fa-trash mx-2"></i>
+                <i onClick={() => {deleteNote(note._id)}} className="fa-solid fa-trash mx-2"></i>
             </div>
             </div>
         </div>

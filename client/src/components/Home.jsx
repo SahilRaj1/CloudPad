@@ -1,10 +1,17 @@
 import React from "react";
 import { Notes } from "./Notes";
 
-export default function Home() {
+
+export default function Home(props) {
+
+    const handleAdd = () => {
+        props.showAlert("Successfully added note", "success")
+    }
 
     return (
+        <>
         <div className="my-3">
+
 
             {/* add a note */}
             <h1 className="text-center">Add a Note</h1>
@@ -31,12 +38,13 @@ export default function Home() {
                         placeholder="Enter note here"
                     ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary my-1">Add</button>
+                <button type="submit" onClick={handleAdd} className="btn btn-primary my-1">Add</button>
             </div>
 
             {/* view notes here */}
-            <Notes />
+            <Notes showAlert={props.showAlert} />
 
         </div>
+        </>
     );
 }

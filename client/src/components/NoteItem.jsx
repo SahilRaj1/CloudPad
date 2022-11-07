@@ -25,7 +25,7 @@ export const NoteItem = (props) => {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
                 <i onClick={handleEdit} className="fa-solid fa-pen-to-square mx-2"></i>
-                <i onClick={() => {deleteNote(note._id)}} className="fa-solid fa-trash mx-2"></i>
+                <i onClick={() => {deleteNote(note._id);props.showAlert("Successfully deleted note", "success");}} className="fa-solid fa-trash mx-2"></i>
             </div>
             </div>
         </div>

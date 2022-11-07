@@ -3,6 +3,8 @@ import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
 
+    const host = 'http://localhost:5000'
+
     const notesInitial = [
         {
           "_id": "63595a254845f46e54d65a3f",
@@ -62,8 +64,31 @@ const NoteState = (props) => {
     }
 
     // Edit a note
-    const editNote = (id) => {
+    const editNote = async (id, title, description, tag) => {
+
+      // API call
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
       
+      const json = response.json();
+    
+
+      // logic to edit note in client
+      for (let i = 0; i < notes.length; i++) {
+        const element = notes[i];
+        if (element._id === id) {
+            element.title = title;
+            element.description =description;
+            element.tag = tag;
+
+        }
+      }
+
     }
 
     // Delete a note

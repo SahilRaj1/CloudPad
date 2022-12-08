@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import NoteContext from "../context/notes/noteContext";
+import { Notes } from './Notes';
 
 export const AddNote = (props) => {
 
@@ -7,11 +8,11 @@ export const AddNote = (props) => {
     const { addNote } = context;
 
     const handleAdd = () => {
-        addNote(note.tag, note.description);
+        addNote(note.title, note.description, note.tag);
         props.showAlert("Successfully added note", "success")
     }
 
-    const [note, setNote] = useState({title: "", description: "", tag: "default"});
+    const [note, setNote] = useState({title: "", description: "", tag: "General"});
 
     const onChange = (event) => {
         setNote({...note, [event.target.name]: event.target.value})
@@ -23,7 +24,7 @@ export const AddNote = (props) => {
         <div className="container-fluid">
             <div className="mb-3 mt-4">
                 <label htmlFor="title" className="form-label">
-                    <h4>Title</h4>
+                    <h5>Title</h5>
                 </label>
                 <input
                     type="text"
@@ -35,8 +36,21 @@ export const AddNote = (props) => {
                 />
             </div>
             <div className="mb-3">
+                <label htmlFor="tag" className="form-label">
+                    <h5>Tag</h5>
+                </label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="tag"
+                    name="tag"
+                    placeholder="Enter tag here"
+                    onChange={onChange}
+                />
+            </div>
+            <div className="mb-3">
                 <label htmlFor="description" className="form-label">
-                    <h4>Note</h4>
+                    <h5>Note</h5>
                 </label>
                 <textarea
                     className="form-control"
@@ -52,3 +66,4 @@ export const AddNote = (props) => {
     </>
   )
 }
+

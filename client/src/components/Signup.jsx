@@ -15,33 +15,41 @@ const Signup = () => {
                         </Link>
                       </div>
                       <div className="form-group mt-3 mb-2">
-                          <label>Name</label>
+                          <label htmlFor="name">Name</label>
                           <input
                               type="text"
+                              name='name'
+                              id='name'
                               className="form-control"
                               placeholder="Enter name"
                           />
                       </div>
                       <div className="form-group mt-2 mb-2">
-                          <label>Email address</label>
+                          <label htmlFor="email">Email address</label>
                           <input
                               type="email"
+                              name='email'
+                              id='email'
                               className="form-control"
                               placeholder="Enter email"
                           />
                       </div>
                       <div className="form-group mb-2 mt-2">
-                          <label>Password</label>
+                          <label htmlFor="password">Password</label>
                           <input
                               type="password"
+                              name='password'
+                              id='password'
                               className="form-control mt-1"
                               placeholder="Enter password"
                           />
                       </div>
                       <div className="form-group mb-2 mt-2">
-                          <label>Confirm Password</label>
+                          <label htmlFor='confirmPassword'>Confirm Password</label>
                           <input
                               type="password"
+                              name='confirmPassword'
+                              id='confirmPassword'
                               className="form-control mt-1"
                               placeholder="Confirm password"
                           />

@@ -22,13 +22,13 @@ export const AddNote = (props) => {
 
     return (
         <>
-            <h1 className="text-center mt-5">Add a Note</h1>
-            <div className="container box mt-4 ">
+            <div className="container box mt-5 ">
+            <h1 className="text-center mb-4 box-title">Add a Note</h1>
             <div className="container-fluid box-content mb-1">
                 <form>
                     <div className="mb-3">
-                        <label htmlFor="title" className="form-label">
-                            <h5>Title</h5>
+                        <label htmlFor="title">
+                            <h5 style={{"fontWeight": "600"}}>Title</h5>
                         </label>
                         <input
                             type="text"
@@ -41,8 +41,8 @@ export const AddNote = (props) => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="tag" className="form-label">
-                            <h5>Tag</h5>
+                        <label htmlFor="tag">
+                            <h5 style={{"fontWeight": "600"}}>Tag</h5>
                         </label>
                         <input
                             type="text"
@@ -55,8 +55,8 @@ export const AddNote = (props) => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="description" className="form-label">
-                            <h5>Note</h5>
+                        <label htmlFor="description">
+                            <h5 style={{"fontWeight": "600"}}>Note</h5>
                         </label>
                         <textarea
                             className="form-control"

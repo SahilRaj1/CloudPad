@@ -62,6 +62,20 @@
   padding-right: 10%;
 }
 
+.box-card {
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.box-title {
+  font-weight: 800;
+  color: rgb(34, 34, 34);
+  margin-bottom: 1em;
+} 
+
 .Auth-form {
   width: 400px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;

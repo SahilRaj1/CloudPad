@@ -126,7 +126,7 @@ export const Notes = (props) => {
                 </div>
             </div>
             <div className="container-fluid mt-5">
-                <h1 className="text-center mb-4">My Notes</h1>
+                <h1 className="text-center mb-4 box-title">My Notes</h1>
                 <div className="row">
                     {notes.map((note) => {
                         return (

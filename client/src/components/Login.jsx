@@ -15,23 +15,27 @@ const Login = () => {
                           </Link>
                         </div>
                       <div className="form-group mt-3 mb-2">
-                          <label>Email address</label>
+                          <label htmlFor="email">Email address</label>
                           <input
                               type="email"
+                              name="email"
+                              id="email"
                               className="form-control"
                               placeholder="Enter email"
                           />
                       </div>
                       <div className="form-group mt-2 mb-2">
-                          <label>Password</label>
+                          <label htmlFor="password">Password</label>
                           <input
                               type="password"
+                              name="password"
+                              id="password"
                               className="form-control mt-1"
                               placeholder="Enter password"
                           />
                       </div>
                       <div className="d-grid gap-2 mt-4">
-                          <button type="submit" className="btn btn-primary">
+                          <button type="submit" className="btn btn-primary" >
                               Login
                           </button>
                       </div>

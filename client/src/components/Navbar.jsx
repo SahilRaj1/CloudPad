@@ -27,10 +27,19 @@ export default function Navbar() {
                 <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==='/about'? 'active': ''}`} to="/about">About</Link>
                 </li>
+                <li className="nav-item">
+                <Link className={`nav-link ${location.pathname==='/addnote'? 'active': ''}`} to="/addnote">New Note</Link>
+                </li>
             </ul>
             <form className="d-flex">
-              <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-              <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className={`nav-link ${location.pathname==='/login'? 'active': ''}`} to="/login">Login</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className={`nav-link ${location.pathname==='/signup'? 'active': ''}`} to="/signup">Signup</Link>
+                  </li>
+              </ul>
             </form>
             </div>
         </div>

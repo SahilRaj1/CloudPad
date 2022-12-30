@@ -11,7 +11,7 @@ export const NoteItem = (props) => {
     return (
         <>
 
-        <div className='col-md-6 col-lg-4 my-3' > 
+        <div className='col-md-6 col-lg-4 my-4' > 
             <div className="card" style={{width: "20rem", marginLeft: "auto", marginRight: "auto"}}>
             <div className="card-body" >
                 <h5 className="card-title">{title}</h5>

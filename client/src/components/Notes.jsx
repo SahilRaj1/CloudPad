@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
-import { AddNote } from "./AddNote";
 import { NoteItem } from "./NoteItem";
 
 export const Notes = (props) => {
@@ -34,7 +33,6 @@ export const Notes = (props) => {
 
     return (
         <>
-            <AddNote showAlert={props.showAlert} />
             <button
                 ref={ref}
                 type="button"
@@ -127,8 +125,8 @@ export const Notes = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid my-5">
-                <h1 className="text-center mb-3">My Notes</h1>
+            <div className="container-fluid mt-5">
+                <h1 className="text-center mb-4">My Notes</h1>
                 <div className="row">
                     {notes.map((note) => {
                         return (

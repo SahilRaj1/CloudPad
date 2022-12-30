@@ -22,10 +22,11 @@ export const AddNote = (props) => {
 
     return (
         <>
-            <h1 className="text-center">Add a Note</h1>
-            <div className="container-fluid">
+            <h1 className="text-center mt-5">Add a Note</h1>
+            <div className="container box mt-4 ">
+            <div className="container-fluid box-content mb-1">
                 <form>
-                    <div className="mb-3 mt-4">
+                    <div className="mb-3">
                         <label htmlFor="title" className="form-label">
                             <h5>Title</h5>
                         </label>
@@ -53,7 +54,7 @@ export const AddNote = (props) => {
                             value={note.tag}
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-4">
                         <label htmlFor="description" className="form-label">
                             <h5>Note</h5>
                         </label>
@@ -68,7 +69,8 @@ export const AddNote = (props) => {
                         ></textarea>
                     </div>
                 </form>
-                <button disabled={note.title.length<3 || note.description.length<5} type="submit" onClick={handleAdd} className="btn btn-primary my-1">Add</button>
+                <button disabled={note.title.length<3 || note.description.length<5} type="submit" onClick={handleAdd} className="btn btn-primary my-1">Add Note</button>
+            </div>
             </div>
         </>
     )

@@ -9,6 +9,7 @@ import { useState } from "react";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { AddNote } from "./components/AddNote";
+import Profile from "./components/Profile";
 
 
 function App() {
@@ -28,15 +29,16 @@ function App() {
     return (
         <NoteState>
             <Router>
-                    <Navbar />
+                    <Navbar showAlert={showAlert} />
                     <Alert alert={alert} />
                     <div className="container">
                         <Routes>
-                            <Route exact path="/" element={<Home showAlert={showAlert} />}></Route>
-                            <Route exact path="/about" element={<About />}></Route>
-                            <Route exact path="/login" element={<Login />}></Route>
-                            <Route exact path="/signup" element={<Signup />}></Route>
-                            <Route exact path="/addnote" element={<AddNote showAlert={showAlert}/>}></Route>
+                            {localStorage.getItem('token')} && (<Route exact path="/mynotes" element={<Home showAlert={showAlert} />}></Route>)
+                            {localStorage.getItem('token')} && <Route exact path="/about" element={<About />}></Route>
+                            (<Route exact path="/addnote" element={<AddNote showAlert={showAlert}/>}></Route>)
+                            <Route exact path="/login" element={<Login showAlert={showAlert} />}></Route>
+                            <Route exact path="/signup" element={<Signup showAlert={showAlert} />}></Route>
+                            <Route exact path="/profile" element={<Profile showAlert={showAlert} />}></Route>
                         </Routes>
                     </div>
             </Router>

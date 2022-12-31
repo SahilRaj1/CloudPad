@@ -17,6 +17,7 @@ router.post('/createuser', [
 ], async (req, res) => {
 
     // If there are errors return bad request and the errors
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -27,7 +28,7 @@ router.post('/createuser', [
 
         let user = await User.findOne({email: req.body.email});
         if (user) {
-            return res.status(400).json({error: "Email already exists"});
+            return res.status(400).json({success, error: "Email already exists"});
         }
 
         // Salting password
@@ -48,7 +49,8 @@ router.post('/createuser', [
             },
         }
         const authtoken = jwt.sign(data, JWT_SECRET);
-        res.json({authtoken});
+        success = true;
+        res.json({success, authtoken});
 
     } catch (error) {
         
@@ -67,6 +69,7 @@ router.post('/login', [
 ], async (req, res) => {
 
     // If there are errors return bad request and the errors
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -78,12 +81,12 @@ router.post('/login', [
 
         let user = await User.findOne({email});
         if (!user) {
-            return res.status(400).json({error: "Please try to login with ccorrect credentials"});
+            return res.status(400).json({success, error: "Please try to login with correct credentials"});
         }
 
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
-            return res.status(400).json({error: "Please try to login with ccorrect credentials"});
+            return res.status(400).json({success, error: "Please try to login with correct credentials"});
         }
 
         // Token authentication using JWT
@@ -93,7 +96,8 @@ router.post('/login', [
             },
         }
         const authtoken = jwt.sign(data, JWT_SECRET);
-        res.json({authtoken});
+        success = true;
+        res.json({success, authtoken});
 
     } catch (error) {
         console.error(error.message);
@@ -104,7 +108,7 @@ router.post('/login', [
 
 
 // ROUTE 3: Get logged in user details: POST 'api/auth/getuser". Login required
-router.post('/getuser', fetchuser, async (req, res) => {
+router.get('/getuser', fetchuser, async (req, res) => {
 
     try {
         

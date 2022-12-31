@@ -1,23 +1,38 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
 import { NoteItem } from "./NoteItem";
+import { useNavigate } from "react-router-dom";
 
 export const Notes = (props) => {
-    
     const context = useContext(NoteContext);
     const { notes, getNotes, editNote } = context;
+    let navigate = useNavigate();
 
     useEffect(() => {
-        getNotes();
+        if (localStorage.getItem("token")) {
+            getNotes();
+        } else {
+            navigate("/login");
+        }
     }, []);
 
     const ref = useRef(null);
     const refClose = useRef(null);
-    const [note, setNote] = useState({ id: "", title: "", description: "", tag: "Not Specified" });
+    const [note, setNote] = useState({
+        id: "",
+        title: "",
+        description: "",
+        tag: "Not Specified",
+    });
 
     const updateNote = (currentNote) => {
         ref.current.click();
-        setNote({ id: currentNote._id, title: currentNote.title, description: currentNote.description, tag: currentNote.tag });
+        setNote({
+            id: currentNote._id,
+            title: currentNote.title,
+            description: currentNote.description,
+            tag: currentNote.tag,
+        });
     };
 
     const handleEdit = () => {
@@ -39,8 +54,7 @@ export const Notes = (props) => {
                 className="btn btn-primary d-none"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-            >
-            </button>
+            ></button>
             <div className="modal" tabIndex="-1" id="exampleModal">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -118,7 +132,15 @@ export const Notes = (props) => {
                             >
                                 Close
                             </button>
-                            <button disabled={note.title.length<3 || note.description.length<5} onClick={handleEdit} type="button" className="btn btn-primary">
+                            <button
+                                disabled={
+                                    note.title.length < 3 ||
+                                    note.description.length < 5
+                                }
+                                onClick={handleEdit}
+                                type="button"
+                                className="btn btn-primary"
+                            >
                                 Update Note
                             </button>
                         </div>
@@ -127,7 +149,7 @@ export const Notes = (props) => {
             </div>
             <div className="container-fluid mt-5">
                 <h1 className="text-center mb-4 box-title">My Notes</h1>
-                <div className="row">
+                {notes.length>0?<div className="row">
                     {notes.map((note) => {
                         return (
                             <NoteItem
@@ -140,7 +162,9 @@ export const Notes = (props) => {
                             />
                         );
                     })}
-                </div>
+                </div>: <div className="container text-center mt-5">
+                    <h2>You don't have any notes :(</h2>    
+                </div>}
             </div>
         </>
     );

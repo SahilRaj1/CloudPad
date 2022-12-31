@@ -14,11 +14,10 @@ const NoteState = (props) => {
             headers: {
                 "Content-Type": "application/json",
                 "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YjAxMDAwZWU0M2E5ZGZlYjRlODVkIn0sImlhdCI6MTY2NTg2MzMxN30.xWH6_CMAjmAn5BOe9kF2ookregn9o6NwPgX7CEGPtcU",
+                    localStorage.getItem('token'),
             },
         });
         const json = await response.json();
-        console.log(json);
         setNotes(json);
     };
 
@@ -30,13 +29,12 @@ const NoteState = (props) => {
             headers: {
                 "Content-Type": "application/json",
                 "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YjAxMDAwZWU0M2E5ZGZlYjRlODVkIn0sImlhdCI6MTY2NTg2MzMxN30.xWH6_CMAjmAn5BOe9kF2ookregn9o6NwPgX7CEGPtcU",
+                    localStorage.getItem('token'),
             },
             body: JSON.stringify({ title, description, tag }),
         });
         const json = await response.json();
 
-        console.log(json);
         setNotes(notes.concat(json));
     };
 
@@ -48,7 +46,7 @@ const NoteState = (props) => {
             headers: {
                 "Content-Type": "application/json",
                 "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YjAxMDAwZWU0M2E5ZGZlYjRlODVkIn0sImlhdCI6MTY2NTg2MzMxN30.xWH6_CMAjmAn5BOe9kF2ookregn9o6NwPgX7CEGPtcU",
+                    localStorage.getItem('token'),
             },
             body: JSON.stringify({ title, description, tag }),
         });
@@ -75,13 +73,11 @@ const NoteState = (props) => {
             method: "DELETE",
             headers: {
                 "auth-token":
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YjAxMDAwZWU0M2E5ZGZlYjRlODVkIn0sImlhdCI6MTY2NTg2MzMxN30.xWH6_CMAjmAn5BOe9kF2ookregn9o6NwPgX7CEGPtcU",
+                    localStorage.getItem('token'),
             },
         });
         const json = await response.json();
-        console.log(json);
 
-        console.log(`Deleting note with id ${id}`);
         const newNotes = notes.filter((note) => {
             return note._id !== id;
         });

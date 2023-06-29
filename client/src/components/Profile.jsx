@@ -20,7 +20,7 @@ const Profile = () => {
             },
         });
         const json = await response.json();
-        setUser(json)
+        setUser(json.data.user)
     };
 
     useEffect(() => {

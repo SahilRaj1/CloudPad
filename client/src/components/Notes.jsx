@@ -9,7 +9,7 @@ export const Notes = (props) => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
+        if (localStorage.getItem('token')) {
             getNotes();
         } else {
             navigate("/login");

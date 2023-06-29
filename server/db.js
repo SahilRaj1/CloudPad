@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/inotebookDB';
+const env = require('dotenv');
+const path = require('path')
+env.config({ path: './.env' });
+
+const mongoURI = `mongodb+srv://raj24sahil:${process.env.MONGO_PASSWORD}@cluster0.j2ec5re.mongodb.net/inotebookdb`;
 
 const connectToMongo = ()=> {
-    mongoose.connect(mongoURI, ()=> {
-        console.log("Conected to mongo successfully");
+
+    mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true },(error)=> {
+        if (error) {
+            console.log(error.message);
+        } else {
+            console.log("Conected to mongo cloud successfully");
+        }
     });
+    
 }
 
 module.exports = connectToMongo;

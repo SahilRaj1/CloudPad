@@ -1,7 +1,10 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'mynameissahil';
+const env = require('dotenv');
+const path = require('path')
+env.config({ path: './.env' });
+const JWT_SECRET = process.env.JWT_SECRET;
 
-const fetchuser = (req, res, next) => {
+const fetchUser = (req, res, next) => {
 
     // Get the user from the jwt token and add to request object
     const token = req.header('auth-token');
@@ -21,4 +24,4 @@ const fetchuser = (req, res, next) => {
 
 }
 
-module.exports = fetchuser
+module.exports = fetchUser

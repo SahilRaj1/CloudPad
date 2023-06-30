@@ -22,7 +22,7 @@ const Login = (props) => {
         if (json.success) {
             localStorage.setItem('token', json.authtoken);
             props.showAlert("Successfully logged in", "success");
-            navigate("/mynotes");
+            navigate("/");
         } else {
             props.showAlert("Invalid Password", "danger");
             setCredentials({password: ""});

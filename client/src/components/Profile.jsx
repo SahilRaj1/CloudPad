@@ -36,7 +36,8 @@ const Profile = () => {
         <>
             <div className="contianer-fluid Auth-form-container">
                 <div className="container box">
-                    <div className="container box-content">
+                    <div className="container box-content m-auto text-center">
+                        <img className="mb-2" src="https://icons.veryicon.com/png/o/miscellaneous/general-icon-6/profile-user.png" alt="" width={100} />
                         <h3>Hi {user.name} !</h3>
                         <p>Joined on {user.date}</p>
                     </div>

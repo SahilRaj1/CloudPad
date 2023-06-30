@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const env = require('dotenv');
-const path = require('path')
-env.config({ path: './.env' });
+env.config({ path: `${__dirname}/.env` });
 
-const mongoURI = `mongodb+srv://raj24sahil:${process.env.MONGO_PASSWORD}@cluster0.j2ec5re.mongodb.net/inotebookdb`;
+const mongoURI = `mongodb+srv://raj24sahil:${process.env.MONGO_PASSWORD}@cluster0.j2ec5re.mongodb.net/cloudpaddb`;
 
 const connectToMongo = ()=> {
 

@@ -2,8 +2,10 @@ const User = require(`${__dirname}/../models/UserModel`);
 const bcrypt = require("bcrypt");
 const signToken = require(`${__dirname}/../utils/token`);
 const { validationResult } = require('express-validator');
+const env = require('dotenv');
+env.config({ path: `${__dirname}/../.env` });
 
-const saltRounds = 10;
+const saltRounds = Number(process.env.SALT_ROUNDS);
 
 // ROUTE 1: Create a user using: POST 'api/auth/createuser". No login required
 exports.createUser = async (req, res) => {

@@ -27,7 +27,7 @@ const Signup = (props) => {
             if (json.success) {
                 localStorage.setItem('token', json.authtoken);
                 props.showAlert("Successfully signed up", "success");
-                navigate("/login");
+                navigate("/");
             } else {
                 props.showAlert(json.error, "warning")
                 setCredentials({password: ""});

@@ -3,8 +3,10 @@ import NoteContext from "../context/notes/noteContext";
 import { useNavigate } from "react-router-dom";
 
 export const AddNote = (props) => {
+
     const context = useContext(NoteContext);
     const { addNote } = context;
+    
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -35,7 +37,7 @@ export const AddNote = (props) => {
     } else {
         return (
             <>
-                <div className="container box mt-5 ">
+                <div className="container box mt-5">
                     <h1 className="text-center mb-4 box-title">Add a Note</h1>
                     <div className="container-fluid box-content mb-1">
                         <form>

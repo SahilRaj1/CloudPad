@@ -16,8 +16,8 @@ export const NoteItem = (props) => {
             <div className="card-body box-content" >
                 <h4 className="card-title mb-3" style={{"fontWeight": "600"}}>{title}</h4>
                 <p className="card-text mb-4">{description}</p>
-                <i onClick={() => {updateNote(note);props.showAlert("Successfully edited note", "success");}} className="fa-solid fa-pen-to-square mx-1"></i>
-                <i onClick={() => {deleteNote(note._id);props.showAlert("Successfully deleted note", "success");}} className="fa-solid fa-trash mx-3"></i>
+                <i onClick={() => {updateNote(note);}} className="fa-solid fa-pen-to-square mx-1"></i>
+                <i onClick={() => {deleteNote(note._id); props.showAlert("Successfully deleted note", "success");}} className="fa-solid fa-trash mx-3"></i>
             </div>
             </div>
         </div>
